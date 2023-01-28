@@ -1,8 +1,20 @@
 -- Import openai and quill
-package.path = "/DavinCC/?.lua;" .. package.path
+package.path = "/DALL-CC/?.lua;" .. package.path
 local openai = require("lib/openai-lua/openai")
 local quill = require("quill")
 
 -- Generate image with DALL-E
-local gen = openai.generate("real life monster energy can at night", 1, "1024x1024")
-quill.scribe("/DavinCC/cmpl.json", "w", gen)
+local gen = openai.generate("real life hackerman", 1, "1024x1024")
+
+
+-- Error image if failed
+if not gen then
+    gen = quill.scribe("/DALL-CC/empty.json", "r")
+end
+
+
+-- Write json and link
+quill.scribe("/DALL-CC/gen.json", "w", gen)
+local link = textutils.unserialiseJSON(gen)["data"][1]["url"]
+print(link)
+quill.scribe("/DALL-CC/out.txt", "w", link)
