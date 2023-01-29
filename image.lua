@@ -1,10 +1,13 @@
+
+
+
 -- Import openai and quill
 package.path = "/DALL-CC/?.lua;" .. package.path
 local openai = require("lib/openai-lua/openai")
 local quill = require("quill")
 
 -- Generate image with DALL-E
-local gen = openai.generate("WALL-E", 4, "1024x1024")
+local gen = openai.generate("black velvet painting of real life hackerman", 1, "1024x1024")
 
 
 -- Error image if failed
