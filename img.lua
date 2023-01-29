@@ -39,7 +39,7 @@ local prompt = read()
 print("\n")
 -- Prompt testing
 if not prompt then
-    error('Error: no prompt provided. Usage: img "prompt" [number] [magnitude](sm, md, lg)')
+    error('Error: no prompt provided. Usage: img [number] [magnitude](sm, md, lg)')
 end
 
 

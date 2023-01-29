@@ -9,4 +9,4 @@ DALL-E in ComputerCraft for AI image generation
    1. Sign-in and access your [private API key](https://beta.openai.com/account/api-keys)
    2. Paste the API key into `template.env`, replacing the sample key
    3. Rename template.env to just .env
-3. Test `examples.lua` and enjoy!
+3. Run `img [number] [magnitude](sm, md, lg)` and enjoy!
