@@ -17,14 +17,17 @@ elseif number > 10 then
     number = 10
 end
 -- Magnitude conversion, defaults to large
+if magnitude then
+    magnitude = string.lower(magnitude)
+else
+    magnitude = "lg"
+end
 local size
 if magnitude == "sm" then
     size = "256x256"
 elseif magnitude == "md" then
     size = "512x512"
 elseif magnitude == "lg" then
-    size = "1024x1024"
-else
     size = "1024x1024"
 end
 
