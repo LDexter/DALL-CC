@@ -10,3 +10,5 @@ DALL-E in ComputerCraft for AI image generation
    2. Paste the API key into `template.env`, replacing the sample key
    3. Rename template.env to just .env
 3. Run `img [number] [magnitude](sm, md, lg)` and enjoy!
+
+All image links will be written to `out.txt`.
