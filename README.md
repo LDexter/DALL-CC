@@ -1,10 +1,12 @@
 # DALL-CC
 
-### DALL-E in ComputerCraft for AI image generation
+#### DALL-E in ComputerCraft for AI image generation
+
+### Optional DavinCC Integration
 
 **_Works seamlessly with [DavinCC](https://github.com/LDexter/DavinCC)_** to produce AI-generated images, that are prompted by AI-generated text. This requires as little effort as: _"Imagine a photograph/artwork/cartoon of a giraffe. Describe."_ The value achieved here is immese, as your input consists of one word: "giraffe", while DavinCC's output is a verbose breakdown of your giraffe in great detail... and DALL-CC **_loves detail_**. An example output from this incredible AI tag-team effort is linked below.
 
-### DALL-vinci Output Sample
+#### DALL-vinci Output Sample
 
 ![DALL-vinci output](https://github.com/LDexter/fontawesome/blob/main/DavinCC/DALLvinci.png)
 
