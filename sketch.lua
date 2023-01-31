@@ -17,7 +17,7 @@ function sketch.generate(prompt, number, size)
         gen = quill.scribe("/DALL-CC/empty.json", "r")
     end
 
-    -- Write to json and clear out
+    -- Write to gen.json and clear out.txt
     quill.scribe("/DALL-CC/gen.json", "w", gen)
     quill.scribe("/DALL-CC/out.txt", "w", "")
 
