@@ -19,4 +19,4 @@
    3. Rename template.env to just .env
 3. Run `img [number] [magnitude](sm, md, lg)` and enjoy!
 
-All image links will be written to `out.txt`.
+All image links will be written to `/data/out.txt`.

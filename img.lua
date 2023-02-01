@@ -1,6 +1,6 @@
 -- Import openai and quill
 package.path = "/DALL-CC/?.lua;" .. package.path
-local sketch = require("sketch")
+local sketch = require("lib/sketch")
 
 -- User input for risk and personality
 local number, magnitude = ...

@@ -3,7 +3,7 @@ local sketch = {}
 -- Import openai and quill
 package.path = "/DALL-CC/?.lua;" .. package.path
 local openai = require("lib/openai-lua/openai")
-local quill = require("quill")
+local quill = require("lib/quill")
 
 
 
@@ -14,17 +14,17 @@ function sketch.generate(prompt, number, size)
 
     -- Error image if failed
     if not gen then
-        gen = quill.scribe("/DALL-CC/empty.json", "r")
+        gen = quill.scribe("/DALL-CC/data/empty.json", "r")
     end
 
     -- Write to gen.json and clear out.txt
-    quill.scribe("/DALL-CC/gen.json", "w", gen)
-    quill.scribe("/DALL-CC/out.txt", "w", "")
+    quill.scribe("/DALL-CC/data/gen.json", "w", gen)
+    quill.scribe("/DALL-CC/data/out.txt", "w", "")
 
     -- Append out with each link
-    for i = 1, number do
-        link = textutils.unserialiseJSON(gen)["data"][i]["url"]
-        quill.scribe("/DALL-CC/out.txt", "a", link .. "\n")
+    for _, image in pairs(textutils.unserialiseJSON(gen)["data"]) do
+        link = image["url"]
+        quill.scribe("/DALL-CC/data/out.txt", "a", link .. "\n")
     end
 
     -- Return last link

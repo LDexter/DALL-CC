@@ -1,8 +1,8 @@
 -- Import openai and quill
 package.path = "/DALL-CC/?.lua;" .. package.path
 local openai = require("lib/openai-lua/openai")
-local sketch = require("sketch")
-local quill = require("quill")
+local sketch = require("lib/sketch")
+local quill = require("lib/quill")
 
 local prompt = "A small kitten"
 local number = 1
