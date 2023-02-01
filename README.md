@@ -4,7 +4,7 @@
 
 ### Optional DavinCC Integration
 
-**_Works seamlessly with [DavinCC](https://github.com/LDexter/DavinCC)_** to produce AI-generated images, that are prompted by AI-generated text. This requires as little effort as: _"Imagine a photograph/artwork/cartoon of a bird. Describe."_ The value achieved here is immese, as your input consists of one word: "bird", while DavinCC's output is a verbose breakdown of your bird in great artistic detail... and DALL-CC **_loves detail_**. An example output from this incredible AI tag-team effort is linked below.
+**_Works seamlessly with [DavinCC](https://github.com/LDexter/DavinCC)_** to produce AI-generated images, that are prompted by AI-generated text. This requires as little effort as: _"imagine a photograph/artwork/cartoon of a bird"_. The value achieved here is immese, as your input consists of one word: "bird", while DavinCC's output is a verbose breakdown of your bird in great artistic detail... and DALL-CC **_loves detail_**. An example output from this incredible AI tag-team effort is linked below.
 
 #### DALL-vinci Output Sample
 
