@@ -6,7 +6,6 @@ local openai = require("lib/openai-lua/openai")
 local quill = require("lib/quill")
 
 
-
 -- Generates image with DALL-E using prompt, number, and size
 function sketch.generate(prompt, number, size)
     local gen = openai.generate(prompt, number, size)
