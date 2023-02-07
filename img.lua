@@ -48,6 +48,13 @@ end
 
 -- Generate image
 local link = sketch.generate(prompt, number, size)
+
+-- Pull image
+local req = http.get(link, nil, true)
+local image = req.readAll()
+-- TODO: use pngLua to render in ComputerCraft
+req.close()
+
 -- Print first link
 term.setTextColour(colours.orange)
 print(link)
