@@ -9,7 +9,7 @@ local quill = require("lib/quill")
 -- Generates image with DALL-E using prompt, number, and size
 function sketch.generate(prompt, number, size)
     local gen = openai.generate(prompt, number, size)
-    local link
+    local links = {}
 
     -- Error image if failed
     if not gen then
@@ -21,13 +21,13 @@ function sketch.generate(prompt, number, size)
     quill.scribe("/DALL-CC/data/out.txt", "w", "")
 
     -- Append out with each link
-    for _, image in pairs(textutils.unserialiseJSON(gen)["data"]) do
-        link = image["url"]
-        quill.scribe("/DALL-CC/data/out.txt", "a", link .. "\n")
+    for count, image in pairs(textutils.unserialiseJSON(gen)["data"]) do
+        links[count] = image["url"]
+        quill.scribe("/DALL-CC/data/out.txt", "a", links[count] .. "\n")
     end
 
     -- Return last link
-    return link
+    return links
 end
 
 

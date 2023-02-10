@@ -2,7 +2,8 @@
 package.path = "/DALL-CC/?.lua;" .. package.path
 local sketch = require("lib/sketch")
 local quill = require("lib/quill")
-local render = require("lib/pngLua/render")
+package.path = "/DALL-CC/lib/pngLua/?.lua;" .. package.path
+local canvas = require("lib/canvas")
 
 -- User input for risk and personality
 local number, magnitude = ...
@@ -48,37 +49,42 @@ if not prompt then
 end
 
 
--- Generate image
-local link = sketch.generate(prompt, number, size)
+-- Generate images
+local links = sketch.generate(prompt, number, size)
 
 
--- Print first link
-term.setTextColour(colours.orange)
-print(link)
-term.setTextColour(colours.white)
+--! USE MAKE DIR FUNCTION
+-- Define and make image directory
+local dirGen = "/DALL-CC/images/gen/"
+local dirOut = "/DALL-CC/images/out/"
 
 
--- Pull image
-local req = http.get(link, nil, true)
-local image = req.readAll()
-req.close()
+fs.delete(dirGen)
+fs.delete(dirOut)
+
+
+fs.makeDir(dirGen)
+fs.makeDir(dirOut)
 
 
 -- Use pngLua to render each in ComputerCraft
---! USE MAKE DIR FUNCTION
--- for item = 1, number do
---     -- Create name and path for gen
---     local name = "gen" .. item .. ".png"
---     local out = "out" .. item .. ".json"
---     local path = "/DALL-CC/images/gen/" .. name
+for count, url in pairs(links) do
+    -- Pull images
+    local req = http.get(url, nil, true)
+    local png = req.readAll()
+    req.close()
 
---     -- Save gen and display
---     quill.scribe(path, "wb", image)
---     local result = render.display(path, 2)
+    -- Create name and path for gen
+    local gen = "gen" .. count .. ".png"
+    local out = "out" .. count .. ".bimg"
+    local pathGen = dirGen .. gen
+    local pathOut = dirOut .. out
 
---     -- Save output
---     result = textutils.serialiseJSON(result)
---     term.clear()
---     print(result)
---     quill.scribe("/DALL-CC/images/output/" .. out, "w", result)
--- end
+    -- Display and save generations
+    quill.scribe(pathGen, "wb", png)
+    canvas.render(pathGen, 2, pathOut)
+
+    -- Clear and repeat upon any user input
+    os.pullEvent("char")
+    canvas.clear()
+end
