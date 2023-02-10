@@ -23,15 +23,19 @@ end
 if magnitude then
     magnitude = string.lower(magnitude)
 else
-    magnitude = "lg"
+    magnitude = "sm"
 end
 local size
+local factor
 if magnitude == "sm" then
     size = "256x256"
+    factor = 2
 elseif magnitude == "md" then
     size = "512x512"
+    factor = 3
 elseif magnitude == "lg" then
     size = "1024x1024"
+    factor = 4
 end
 
 
@@ -82,7 +86,7 @@ for count, url in pairs(links) do
 
     -- Display and save generations
     quill.scribe(pathGen, "wb", png)
-    canvas.render(pathGen, 2, pathOut)
+    canvas.render(pathGen, factor, pathOut)
 
     -- Clear and repeat upon any user input
     os.pullEvent("char")
