@@ -1,6 +1,8 @@
 -- Import openai and quill
 package.path = "/DALL-CC/?.lua;" .. package.path
 local sketch = require("lib/sketch")
+local quill = require("lib/quill")
+local render = require("lib/pngLua/render")
 
 -- User input for risk and personality
 local number, magnitude = ...
@@ -59,5 +61,24 @@ term.setTextColour(colours.white)
 -- Pull image
 local req = http.get(link, nil, true)
 local image = req.readAll()
--- TODO: use pngLua to render in ComputerCraft
 req.close()
+
+
+-- Use pngLua to render each in ComputerCraft
+--! USE MAKE DIR FUNCTION
+-- for item = 1, number do
+--     -- Create name and path for gen
+--     local name = "gen" .. item .. ".png"
+--     local out = "out" .. item .. ".json"
+--     local path = "/DALL-CC/images/gen/" .. name
+
+--     -- Save gen and display
+--     quill.scribe(path, "wb", image)
+--     local result = render.display(path, 2)
+
+--     -- Save output
+--     result = textutils.serialiseJSON(result)
+--     term.clear()
+--     print(result)
+--     quill.scribe("/DALL-CC/images/output/" .. out, "w", result)
+-- end
