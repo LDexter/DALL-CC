@@ -1,8 +1,9 @@
 -- Import openai and quill
+local pathOG = package.path
 package.path = "/DALL-CC/?.lua;" .. package.path
 local sketch = require("lib/sketch")
 local quill = require("lib/quill")
-package.path = "/DALL-CC/lib/pngLua/?.lua;" .. package.path
+package.path = "/DALL-CC/lib/pngLua/?.lua;" .. pathOG
 local canvas = require("lib/canvas")
 
 -- User input for risk and personality
