@@ -34,7 +34,7 @@ function sketch.generate(prompt, number, size)
 end
 
 
-function sketch.display(links, factor)
+function sketch.display(links)
     term.setTextColour(colours.orange)
     print("Generated...\n")
 
@@ -71,7 +71,7 @@ function sketch.display(links, factor)
             -- Display and save generations
             quill.scribe(pathGen, "wb", png)
             print("Saved...\n")
-            canvas.render(pathGen, factor, pathOut)
+            canvas.render(pathGen, pathOut)
 
             -- Clear and repeat upon any user input
             os.pullEvent("char")

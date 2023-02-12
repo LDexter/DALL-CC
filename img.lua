@@ -25,16 +25,12 @@ else
     magnitude = "sm"
 end
 local size
-local factor
 if magnitude == "sm" then
     size = "256x256"
-    factor = 2
 elseif magnitude == "md" or magnitude == "lg" then  -- Medium AND large
     size = "512x512"
-    factor = 3
 elseif magnitude == "lg" then   --! Large images not rendering, thus temporarily disabled
     size = "1024x1024"
-    factor = 4
 end
 
 
@@ -56,4 +52,4 @@ end
 
 -- Generate and display images
 local links = sketch.generate(prompt, number, size)
-sketch.display(links, factor)
+sketch.display(links)
