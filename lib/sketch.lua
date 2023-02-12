@@ -38,20 +38,15 @@ function sketch.display(links)
     term.setTextColour(colours.orange)
     print("Generated...\n")
 
-
-    --! USE MAKE DIR FUNCTION
     -- Define and make image directory
     local dirGen = "/DALL-CC/images/gen/"
     local dirOut = "/DALL-CC/images/out/"
 
-
     fs.delete(dirGen)
     fs.delete(dirOut)
 
-
     fs.makeDir(dirGen)
     fs.makeDir(dirOut)
-
 
     -- Use pngLua to render each in ComputerCraft
     for count, url in pairs(links) do
