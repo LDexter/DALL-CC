@@ -1,3 +1,12 @@
+-- Check for invalid repository name
+local isMain = fs.exists("/DALL-CC-main/")
+local isDALL = fs.exists("/DALL-CC/")
+if isMain then
+    error("Incorrect repository name, please rename DALL-CC-main to simply DALL-CC.")
+elseif not isDALL then
+    error("Incorrect repository location or name, please ensure DALL-CC is installed on root, as /DALL-CC/.")
+end
+
 -- Import openai and quill
 local pathOG = package.path
 package.path = "/DALL-CC/?.lua;" .. package.path
