@@ -80,6 +80,18 @@ function sketch.display(links)
     -- Finish
     term.clear()
     term.setCursorPos(1, 1)
+
+    -- Checking for flags
+    if openai.isFlagged then
+        print("PROMPT FLAGGED FOR:")
+        -- Iterate flag categories
+        for key, value in pairs(openai.flags.categories) do
+            -- Print all true categories
+            if value then
+                print(key)
+            end
+        end
+    end
 end
 
 
